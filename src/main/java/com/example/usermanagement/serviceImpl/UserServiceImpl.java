@@ -37,7 +37,8 @@ public class UserServiceImpl implements UserService {
             throw new ValidationException("Email Already exits");
         });
 
-        UserEntity user = repository.findById(id).orElseThrow(() -> new ValidationException("User not found with id" + id));
+        UserEntity user = repository.findById(id).orElseThrow(() ->
+                new ValidationException("User not found with id" + id));
 
         user.setName(dto.getName());
         user.setEmail(dto.getEmail());
